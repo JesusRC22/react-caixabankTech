@@ -225,11 +225,11 @@ a {
   width: 52px;
   height: 52px;
   border-radius: 16px;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 0.85rem;
+  object-fit: cover;
+  display: block;
+  background: #f1f5f9;
+  padding: 6px;
+  border: 1px solid var(--border);
 }
 
 .bitcoin {
