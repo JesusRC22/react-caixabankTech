@@ -1,22 +1,385 @@
 @import "tailwindcss";
 
-@media (prefers-reduced-motion) {
-  *,
-  ::before,
-  ::after {
-    animation: none !important;
+:root {
+  --bg-main: #0f172a;
+  --bg-secondary: #111827;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --border: #e5e7eb;
+  --positive: #16a34a;
+  --negative: #dc2626;
+  --shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  --shadow-hover: 0 18px 45px rgba(15, 23, 42, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--text-light);
+  padding: 22px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #ffffff;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: var(--text-light);
+  padding: 72px 0 52px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+/* SEARCH */
+
+.search-section {
+  margin-top: -28px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-box {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 18px;
+  display: flex;
+  gap: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.search-box input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.search-box button {
+  border: none;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.search-box button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* MAIN CRYPTO SECTION */
+
+.crypto-section {
+  padding: 70px 0;
+}
+
+.section-title {
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.section-title p {
+  color: var(--text-muted);
+}
+
+.crypto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.crypto-card {
+  background: var(--bg-card);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.crypto-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.crypto-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.crypto-header h3 {
+  font-size: 1.25rem;
+}
+
+.crypto-header span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.crypto-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.bitcoin {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+}
+
+.ethereum {
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+}
+
+.solana {
+  background: linear-gradient(135deg, #14b8a6, #7c3aed);
+}
+
+.cardano {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+}
+
+.ripple {
+  background: linear-gradient(135deg, #334155, #020617);
+}
+
+.polygon {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+.crypto-info {
+  display: grid;
+  gap: 16px;
+}
+
+.crypto-info div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.crypto-info div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.crypto-info span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.crypto-info strong {
+  font-size: 0.95rem;
+}
+
+.positive {
+  color: var(--positive);
+}
+
+.negative {
+  color: var(--negative);
+}
+
+/* FOOTER */
+
+.footer {
+  background: var(--bg-secondary);
+  color: #cbd5e1;
+  padding: 28px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.crypto-button {
+  margin-top: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.crypto-button:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .crypto-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header-content,
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
-@layer base {
-  :root {
+@media (max-width: 600px) {
+  .crypto-grid {
+    grid-template-columns: 1fr;
   }
 
-  h1 {
-    @apply text-4xl font-bold;
+  .search-box {
+    flex-direction: column;
   }
 
-  body {
-    @apply p-6;
+  .search-box button {
+    width: 100%;
+  }
+
+  .hero {
+    padding: 56px 0 46px;
+  }
+
+  .crypto-section {
+    padding: 56px 0;
   }
 }

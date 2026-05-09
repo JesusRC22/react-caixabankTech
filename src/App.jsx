@@ -1,9 +1,14 @@
+import Footer from "./Componentes/Footer";
+import Header from "./Componentes/Header";
+import Main from "./Componentes/Main";
 import "./index.css";
 
 export function App() {
   return (
     <div>
-      <h1>Template!</h1>
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
