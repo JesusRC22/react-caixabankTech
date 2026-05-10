@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
     
@@ -79,7 +80,7 @@ const Main = () => {
                 <strong>{coin.market_cap.toLocaleString('es-Es')}€</strong>
               </div>
             </div>
-            <a href="#" class="crypto-button">Saber más</a>
+            <Link to= {'/detalles/'+coin.id} class="crypto-button">Saber más</Link>
           </article>
     )
     })}

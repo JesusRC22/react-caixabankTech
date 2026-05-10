@@ -383,3 +383,310 @@ a {
     padding: 56px 0;
   }
 }
+/* DETAIL PAGE */
+
+.detail-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: var(--text-light);
+  padding: 52px 0 72px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 34px;
+  color: #cbd5e1;
+  font-weight: 700;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+.detail-hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 42px;
+}
+
+.detail-crypto-main {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.detail-crypto-image {
+  width: 112px;
+  height: 112px;
+  border-radius: 28px;
+  object-fit: contain;
+  background: #ffffff;
+  padding: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.detail-symbol {
+  display: inline-flex;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #dbeafe;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.detail-crypto-main h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.detail-crypto-main p {
+  max-width: 680px;
+  color: #cbd5e1;
+  font-size: 1.05rem;
+}
+
+.detail-price-card {
+  min-width: 260px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 26px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.detail-price-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.detail-price-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.detail-price-card small {
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+/* MAIN DETAIL CONTENT */
+
+.crypto-detail-section {
+  padding: 70px 0;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 28px;
+  margin-bottom: 58px;
+}
+
+.detail-main-card,
+.detail-side-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.detail-section-title {
+  margin-bottom: 18px;
+}
+
+.detail-section-title h2,
+.detail-side-card h2 {
+  font-size: 1.55rem;
+  margin-bottom: 6px;
+}
+
+.detail-section-title p {
+  color: var(--text-muted);
+}
+
+.crypto-description {
+  color: #334155;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.official-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.official-link:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* SENTIMENT */
+
+.sentiment-box {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.sentiment-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+}
+
+.sentiment-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  font-size: 1.6rem;
+}
+
+.sentiment-item strong {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.sentiment-item span:last-child {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.positive-sentiment .sentiment-icon {
+  background: rgba(22, 163, 74, 0.12);
+}
+
+.positive-sentiment strong,
+.positive-sentiment .sentiment-icon {
+  color: var(--positive);
+}
+
+.negative-sentiment .sentiment-icon {
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.negative-sentiment strong,
+.negative-sentiment .sentiment-icon {
+  color: var(--negative);
+}
+
+/* STATS */
+
+.stats-section {
+  margin-top: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.stat-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.stat-card strong {
+  font-size: 1.25rem;
+}
+
+/* RESPONSIVE DETAIL */
+
+@media (max-width: 980px) {
+  .detail-hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-price-card {
+    width: 100%;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .detail-hero {
+    padding: 42px 0 58px;
+  }
+
+  .detail-crypto-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-crypto-image {
+    width: 92px;
+    height: 92px;
+    border-radius: 22px;
+  }
+
+  .detail-price-card strong {
+    font-size: 1.6rem;
+  }
+
+  .crypto-detail-section {
+    padding: 52px 0;
+  }
+
+  .detail-main-card,
+  .detail-side-card {
+    padding: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
