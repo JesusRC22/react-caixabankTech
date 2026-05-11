@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { useStore } from '@nanostores/react'
+import { $previousMarketRoute } from '../stores/navigationStore'
 
 export default function DetallesCrypto() {
     
     let [detalles,setDetalles]=useState({})
     const {id}=useParams()
+    const previousMarketRoute = useStore($previousMarketRoute)
 
     async function ObtenerDetallesCrypto (){
         const urlDescription='https://api.coingecko.com/api/v3/coins/'+id+'?localization=false&tickers=false&market_data=true'
@@ -28,7 +31,7 @@ export default function DetallesCrypto() {
         {/* <p>{detalles?.image?.small}</p> */}
     <section className="detail-hero">
       <div className="container">
-        <Link to="/" className="back-link"> ← Volver al mercado</Link>
+        <Link to={previousMarketRoute.path} className="back-link"> ← Volver a {previousMarketRoute.label}</Link>
 
         <div className="detail-hero-content">
           <div className="detail-crypto-main">

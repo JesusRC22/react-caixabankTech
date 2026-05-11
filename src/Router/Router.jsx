@@ -1,4 +1,4 @@
-import Contacto from '@/Componentes/contacto'
+import Contacto from '@/Componentes/Contacto'
 import DetallesCrypto from '@/Componentes/DetallesCrypto'
 import Layout from '@/Componentes/Layout/Layout'
 import Main from '@/Componentes/Main'

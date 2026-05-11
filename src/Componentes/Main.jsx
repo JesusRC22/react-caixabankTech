@@ -1,3 +1,4 @@
+import { $previousMarketRoute } from '@/stores/navigationStore'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -82,7 +83,8 @@ const Main = () => {
                 <strong>{coin.market_cap.toLocaleString('es-Es')}€</strong>
               </div>
             </div>
-            <Link to= {'detalles/'+coin.id} className="crypto-button">Saber más</Link>
+            <Link to= {'/detalles/'+coin.id} className="crypto-button"   onClick={() =>$previousMarketRoute.set({path: "/",label: "Mercado"})
+  }>Saber más</Link>
           </article>
     )
     })}

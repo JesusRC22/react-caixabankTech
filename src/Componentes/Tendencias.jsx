@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { $previousMarketRoute } from "../stores/navigationStore";
 
 export default function Tendencias() {
   const [top, setTop] = useState([]);
@@ -80,7 +81,11 @@ export default function Tendencias() {
                     <strong>{puesto?.current_price?.toLocaleString('es-ES')} €</strong>
                   </div>
 
-                  <Link to={'/detalles/'+puesto.id} className="ranking-button">
+                  <Link
+                    to={"/detalles/" + puesto.id}
+                    className="ranking-button"
+                    onClick={() =>
+                      $previousMarketRoute.set({path: "/tendencias", label: "Tendencias",})}>
                     Saber más
                   </Link>
                 </article>
