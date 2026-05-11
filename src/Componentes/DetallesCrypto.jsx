@@ -26,20 +26,20 @@ export default function DetallesCrypto() {
     return (
     <main>
         {/* <p>{detalles?.image?.small}</p> */}
-    <section class="detail-hero">
-      <div class="container">
-        <Link to="/" class="back-link"> ← Volver al mercado</Link>
+    <section className="detail-hero">
+      <div className="container">
+        <Link to="/" className="back-link"> ← Volver al mercado</Link>
 
-        <div class="detail-hero-content">
-          <div class="detail-crypto-main">
+        <div className="detail-hero-content">
+          <div className="detail-crypto-main">
             <img 
-              class="detail-crypto-image"
+              className="detail-crypto-image"
               src={detalles?.image?.small}
               alt="Bitcoin logo"
             />
 
             <div>
-              <span class="detail-symbol">{detalles?.symbol?.toUpperCase()}</span>
+              <span className="detail-symbol">{detalles?.symbol?.toUpperCase()}</span>
               <h1>{detalles?.id?.[0]?.toUpperCase()}{detalles?.id?.slice(1,)}</h1>
               <a href={detalles?.links?.homepage[0]}>
                 {detalles?.links?.homepage[0]}
@@ -47,7 +47,7 @@ export default function DetallesCrypto() {
             </div>
           </div>
 
-          <div class="detail-price-card">
+          <div className="detail-price-card">
             <span>Precio actual</span>
             <strong>{detalles?.market_data?.current_price?.usd.toLocaleString('us-US')} USD</strong>
             <small>Actualizado recientemente</small>
@@ -56,18 +56,18 @@ export default function DetallesCrypto() {
       </div>
     </section>
 
-    <section class="crypto-detail-section">
-      <div class="container">
+    <section className="crypto-detail-section">
+      <div className="container">
 
-        <div class="detail-layout">
+        <div className="detail-layout">
 
-          <section class="detail-main-card">
-            <div class="detail-section-title">
+          <section className="detail-main-card">
+            <div className="detail-section-title">
               <h2>Información general</h2>
               <p>Datos principales de la criptomoneda seleccionada.</p>
             </div>
 
-            <p class="crypto-description">
+            <p className="crypto-description">
               {detalles?.description?.en}
             </p>
 
@@ -75,26 +75,26 @@ export default function DetallesCrypto() {
               href="https://bitcoin.org"
               target="_blank"
               rel="noopener noreferrer"
-              class="official-link"
+              className="official-link"
             >
               Visitar página oficial
             </a>
           </section>
 
-          <aside class="detail-side-card">
+          <aside className="detail-side-card">
             <h2>Sentimiento de mercado</h2>
 
-            <div class="sentiment-box">
-              <div class="sentiment-item positive-sentiment">
-                <span class="sentiment-icon">👍</span>
+            <div className="sentiment-box">
+              <div className="sentiment-item positive-sentiment">
+                <span className="sentiment-icon">👍</span>
                 <div>
                   <strong>{detalles?.sentiment_votes_up_percentage}%</strong>
                   <span>Les gusta</span>
                 </div>
               </div>
 
-              <div class="sentiment-item negative-sentiment">
-                <span class="sentiment-icon">👎</span>
+              <div className="sentiment-item negative-sentiment">
+                <span className="sentiment-icon">👎</span>
                 <div>
                   <strong>{detalles?.sentiment_votes_up_percentage}</strong>
                   <span>No les gusta</span>
@@ -105,45 +105,45 @@ export default function DetallesCrypto() {
 
         </div>
 
-        <section class="stats-section">
-          <div class="section-title">
+        <section className="stats-section">
+          <div className="section-title">
             <h2>Datos de mercado</h2>
             <p>Resumen financiero y técnico de la criptomoneda.</p>
           </div>
 
-          <div class="stats-grid">
+          <div className="stats-grid">
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Precio en dólares</span>
               <strong>{detalles?.market_data?.current_price?.usd.toLocaleString('us-US')} USD</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Precio en euros</span>
               <strong>{detalles?.market_data?.current_price?.eur.toLocaleString('es-ES')} EUR</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Precio en libras</span>
               <strong>{detalles?.market_data?.current_price?.eur.toLocaleString('en-EN')} GBP</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Total amortización</span>
               <strong>21,000,000 BTC</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Diferencia de precio 24h</span>
-              <strong class="positive">{detalles?.market_data?.market_cap_change_24h_in_currency?.eur.toLocaleString('es-ES')}</strong>
+              <strong className="positive">{detalles?.market_data?.market_cap_change_24h_in_currency?.eur.toLocaleString('es-ES')}</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Diferencia porcentual 24h</span>
-              <strong class="positive">{detalles?.market_data?.market_cap_change_percentage_24h_in_currency?.eur.toFixed(2)}%</strong>
+              <strong className="positive">{detalles?.market_data?.market_cap_change_percentage_24h_in_currency?.eur.toFixed(2)}%</strong>
             </article>
 
-            <article class="stat-card">
+            <article className="stat-card">
               <span>Fecha de creación</span>
               <strong>{detalles?.genesis_date}</strong>
             </article>
