@@ -9,7 +9,9 @@ const Main = () => {
     
     async function obtenerDatos() {
         const url= 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false'
-        const response= await fetch(url)
+        const response= await fetch(url,{
+          headers:{'x-cg-demo-api-key': 'CG-eWwLZJWUKxxEJfrYSfAmYdxA'}
+        })
         const json= await response.json()
         setCoins(json)
     }
@@ -80,7 +82,7 @@ const Main = () => {
                 <strong>{coin.market_cap.toLocaleString('es-Es')}€</strong>
               </div>
             </div>
-            <Link to= {'/detalles/'+coin.id} className="crypto-button">Saber más</Link>
+            <Link to= {'detalles/'+coin.id} className="crypto-button">Saber más</Link>
           </article>
     )
     })}

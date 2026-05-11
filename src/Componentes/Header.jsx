@@ -12,9 +12,8 @@ import { Link } from 'react-router-dom'
 
       <nav className="nav">
         <Link to="/">Mercado</Link>
-        <a href="#">Tendencias</a>
-        <a href="#">Noticias</a>
-        <a href="#">Contacto</a>
+        <Link to="/tendencias">Tendencias</Link>
+        <Link to= '/contacto'>Contacto</Link>
       </nav>
     </div>
   </header>
