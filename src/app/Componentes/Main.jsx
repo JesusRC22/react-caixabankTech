@@ -1,7 +1,6 @@
-import { $previousMarketRoute } from '@/stores/navigationStore'
+import { $previousMarketRoute } from "../stores/navigationStore"
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link } from "react-router"
 const Main = () => {
     
     

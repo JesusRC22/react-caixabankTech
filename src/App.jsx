@@ -1,8 +1,8 @@
-import Footer from "./Componentes/Footer";
-import Header from "./Componentes/Header";
-import Main from "./Componentes/Main";
+import Footer from "./app/Componentes/Footer";
+import Header from "./app/Componentes/Header";
+import Main from "./app/Componentes/Main";
 import "./index.css";
-import Router from "./Router/Router";
+import Router from "./app/routes";
 
 export function App() {
   return (
