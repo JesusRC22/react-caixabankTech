@@ -7,15 +7,24 @@ const Main = () => {
     
     
     let [coins,setCoins]=useState([])
+    let [search, setSearch]= useState('')
+    let [filtro, setFiltro]=useState('')
     
     async function obtenerDatos() {
-        const url= 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false'
+        const url= 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false'
         const response= await fetch(url,{
           headers:{'x-cg-demo-api-key': 'CG-eWwLZJWUKxxEJfrYSfAmYdxA'}
         })
         const json= await response.json()
         setCoins(json)
     }
+
+const coinsFiltro = coins.filter((coin) => {
+    return coin.name.toLowerCase().includes(filtro.toLowerCase()) ||
+    coin.symbol.toLowerCase().includes(filtro.toLowerCase())
+})
+
+    const buscarCrypto=()=>{setFiltro(search)}
 
 
     useEffect(()=>{
@@ -42,8 +51,10 @@ const Main = () => {
             type="text" 
             placeholder="Buscar criptomoneda..." 
             aria-label="Buscar criptomoneda"
+            value= {search}
+            onChange={(e)=>setSearch(e.target.value)}
           />
-          <button>Buscar</button>
+          <button onClick={buscarCrypto}>Buscar</button>
         </div>
       </div>
     </section>
@@ -58,7 +69,7 @@ const Main = () => {
         <div className="crypto-grid">
 
 
-{coins.map((coin)=>{
+{coinsFiltro.map((coin)=>{
     return(
         <article className="crypto-card" key={coin.id}>
             <div className="crypto-header">
