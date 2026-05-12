@@ -4,6 +4,7 @@ import { $previousMarketRoute } from "../stores/navigationStore";
 
 export default function Tendencias() {
   const [top, setTop] = useState([]);
+  const [search, setSearch]= useState('')
 
   useEffect(() => {
     ObtenerTop();
@@ -19,6 +20,10 @@ export default function Tendencias() {
     const ordenado= await json.sort((a,b)=>b.current_price-a.current_price)
     setTop(ordenado);
   };
+
+  const topFiltro= top.filter((coin)=>{
+    return coin.name.toLowerCase().includes(search.toLowerCase())
+  })
 
   return (
     <main>
@@ -39,8 +44,10 @@ export default function Tendencias() {
               type="text"
               placeholder="Buscar criptomoneda..."
               aria-label="Buscar criptomoneda"
+              value={search}
+              onChange={(e)=>setSearch(e.target.value)}
             />
-            <button>Buscar</button>
+            {/* <button>Buscar</button> */}
           </div>
         </div>
       </section>
@@ -55,7 +62,7 @@ export default function Tendencias() {
           <div className="ranking-list">
 
             
-            {top.map((puesto, index) => {
+            {topFiltro.map((puesto, index) => {
               return (
                 <article className="ranking-row ranking-row-first">
                   <div className="ranking-position">
