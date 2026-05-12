@@ -16,7 +16,8 @@ export default function Tendencias() {
       headers: { "x-cg-demo-api-key": "CG-eWwLZJWUKxxEJfrYSfAmYdxA" },
     });
     const json = await data.json();
-    setTop(json);
+    const ordenado= await json.sort((a,b)=>b.current_price-a.current_price)
+    setTop(ordenado);
   };
 
   return (
