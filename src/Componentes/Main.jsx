@@ -29,7 +29,7 @@ const coinsFiltro = coins.filter((coin) => {
 
     useEffect(()=>{
         obtenerDatos()
-    },[])    
+    },[filtro])    
     
     
     
