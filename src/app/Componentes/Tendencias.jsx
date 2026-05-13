@@ -4,10 +4,11 @@ import { $previousMarketRoute } from "../stores/navigationStore";
 
 export default function Tendencias() {
   const [top, setTop] = useState([]);
+  const [search, setSearch]= useState('')
 
   useEffect(() => {
     ObtenerTop();
-  },[]);
+  },[search]);
 
   const ObtenerTop = async () => {
     const url =
@@ -20,14 +21,18 @@ export default function Tendencias() {
     setTop(ordenado);
   };
 
+  const topFiltro= top.filter((coin)=>{
+    return coin.name.toLowerCase().includes(search.toLowerCase())
+  })
+
   return (
     <main>
       <section className="hero">
         <div className="container">
-          <h1>Top 10 criptomonedas por precio</h1>
+          <h1>Top 10 criptomonedas por popularidad</h1>
           <p>
             Consulta un ranking elegante y actualizado de las criptomonedas con
-            mayor precio del mercado.
+            mayor popularidad del mercado.
           </p>
         </div>
       </section>
@@ -39,8 +44,10 @@ export default function Tendencias() {
               type="text"
               placeholder="Buscar criptomoneda..."
               aria-label="Buscar criptomoneda"
+              value={search}
+              onChange={(e)=>setSearch(e.target.value)}
             />
-            <button>Buscar</button>
+            {/* <button>Buscar</button> */}
           </div>
         </div>
       </section>
@@ -49,13 +56,13 @@ export default function Tendencias() {
         <div className="container">
           <div className="section-title">
             <h2>Ranking principal</h2>
-            <p>Criptomonedas ordenadas de mayor a menor precio.</p>
+            <p>Criptomonedas ordenadas de mayor a menor popularidad.</p>
           </div>
 
           <div className="ranking-list">
 
             
-            {top.map((puesto, index) => {
+            {topFiltro.map((puesto, index) => {
               return (
                 <article className="ranking-row ranking-row-first">
                   <div className="ranking-position">
